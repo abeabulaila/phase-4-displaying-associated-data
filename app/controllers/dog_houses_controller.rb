@@ -3,7 +3,9 @@ class DogHousesController < ApplicationController
 
   def show
     dog_house = DogHouse.find(params[:id])
-    render json: dog_house
+    render json: dog_house, include: :reviews
+    #include: brings the association of the tables we made before
+    #brings the data from the has_many associations to the json data...
   end
 
   private
